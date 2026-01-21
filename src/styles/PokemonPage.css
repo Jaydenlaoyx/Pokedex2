@@ -1,0 +1,649 @@
+.pokemonPageContainer {
+    display: flex; 
+    position: fixed;    
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; 
+    z-index: 50; 
+    padding: 1rem; 
+    justify-content: center; 
+    align-items: center; 
+    backdrop-filter: blur(4px); 
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.pokemonPageContainerBg {
+    overflow: hidden; 
+    position: relative; 
+    border-radius: 1rem; 
+    border-width: 2px; 
+    width: 100%; 
+    max-width: 80rem; 
+    height: 90vh;
+
+    background: linear-gradient(to bottom right, #212121, #424242, #212121);
+}
+
+.headerContainer {
+    display: flex; 
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    left: 0; 
+    z-index: 20; 
+    padding-top: 1rem;
+    padding-bottom: 1rem; 
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-bottom-width: 1px; 
+    /* backdrop-filter: blur(12px);  */
+    backdrop-filter: blur(4px); 
+
+    border-bottom: 1px solid rgba(229, 231, 235, 1);
+    background-color: #111827cc;
+    border-color: #374151; 
+}
+
+.headerSpecimen {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem; 
+    color: #26C6DA
+}
+
+.currentForm {
+    letter-spacing: 0.05em; 
+    text-transform: capitalize; 
+    color: #ffffff; 
+    margin: auto;
+}
+
+.closeButton {
+    padding: 0.5rem; 
+    border-radius: 9999px; 
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms; 
+    width: 2.5rem; 
+    height: 2.5rem; 
+    color: #9CA3AF; 
+    font-weight: 700;
+}
+
+.closeButton:hover {
+    color: #26C6DA;
+    background-color: #1F2937; 
+ }
+
+.mainContentContainer {
+    overflow-y: auto; 
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; 
+    padding-bottom: 1.5rem; 
+    padding-top: 5rem; 
+    height: 100%; 
+    background-color: #111827cc;
+}
+
+.mainContentSubcontainer {
+    display: flex; 
+    position: relative; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100%; 
+}
+
+.blueOverlay-parent {
+    position: absolute; 
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; 
+    pointer-events: none; 
+    opacity: 0.1; 
+}
+
+.blueOverlay-child {
+    position: absolute; 
+    top: 00;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #0ea5e9;
+}
+
+.centralPokemonImageSectionContainer {
+    position: relative; 
+    z-index: 10; 
+}
+
+.crossLinesContainer {
+    display: flex; 
+    position: absolute; 
+    top: -30%; /* top: 0;*/
+    right: 0;
+    bottom: 0;
+    left: 0; 
+    justify-content: center; 
+    align-items: center; 
+    pointer-events: none; 
+}
+
+.horizontalLine {
+    position: absolute; 
+    width: 100%; 
+    height: 1px; 
+    background-color: rgba(6, 182, 212, 0.3);
+}
+
+.verticalLine {
+    position: absolute;
+    height: 80%; /* height: 100% */
+    width: 1px;
+    background-color: rgba(6, 182, 212, 0.3);
+}
+
+.centralPokemonImageContainer {
+    position: relative;
+}
+
+.pulsingEffect {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 9999px; /* Equivalent to rounded-full */
+    opacity: 0.2; /* Equivalent to opacity-20 */
+    animation: pulsing 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.leftFormNavigationButton {
+    position: absolute;
+    left: 0;
+    top: 35%;  /* top: 50% */
+    transform: translateY(-50%) translateX(-4rem); /* Combines -translate-y-1/2 and -translate-x-16 */
+    padding: 0.75rem; /* p-3 (12px) */
+    border-radius: 9999px; /* rounded-full */
+    transition-property: all;
+    transition-duration: 0.15s; /* Default transition-all duration */
+    z-index: 20;
+    background-color: rgb(31 41 55); /* bg-gray-800 */
+    color: rgb(103 232 249); /* text-cyan-400 */
+    border-width: 2px;
+    border-color: rgb(8 145 178 / 0.5); /* border-cyan-500/50 */
+    width: 3rem; /* 24px */
+    height: 3rem; /* 24px */
+}
+
+.leftFormNavigationButton:hover {
+    background-color: rgb(55 65 81);
+}
+
+.rightFormNavigationButton {
+    position: absolute; 
+    right: 0; 
+    top: 35%;  /* top: 50% */
+    transform: translateY(-50%) translateX(4rem);
+    padding: 0.75rem; 
+    border-radius: 9999px; 
+    transition-property: all; 
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+    transition-duration: 150ms; 
+    z-index: 20; 
+    background-color: rgb(31 41 55 / 1); 
+    color: rgb(103 232 249 / 1);
+    border-width: 2px; 
+    border-color: rgb(8 145 178 / 0.5); 
+    width: 3rem; 
+    height: 3rem;
+}
+
+.rightFormNavigationButton:hover {
+    background-color: rgb(55 65 81);
+}
+
+.pokemonImage {
+    width: 25rem;  /* width: 20rem; */
+    height: 20rem;
+    object-fit: contain;
+    filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+    position: relative;
+    z-index: 10;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.topLeftLabelContainer {
+    position: absolute;
+    top: -3rem;   /* -80px */
+    left: -8rem;  /* -128px */
+    color: #22d3ee;
+}
+
+.topLeftLabelSubcontainer {
+    position: relative;
+}
+
+.TLHorizontalLine {
+    position: absolute; 
+    top: 0;  /* bottom: 0*/        
+    left: 100%;   
+
+    /* Sizing and appearance */
+    height: 1px;        
+    width: 8rem;      
+    background-color: currentColor;
+}
+.TLVerticalLine {
+    position: absolute;
+    top: 0; /* bottom: 0*/   
+    left: 100%;
+    height: 2rem; /* or 32px */
+    width: 1px;
+    background-color: currentColor;
+}
+
+.classificationLabel {
+    font-size: 0.875rem; 
+    line-height: 1.25rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em; 
+    margin-bottom: 0.25rem;
+    margin-right: 1rem; /**/
+    color: #cbd5e0; 
+}
+
+.typingsContainer {
+    display: flex; 
+    gap: 0.5rem;
+}
+
+.pokemonTypeBadge {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-transform: capitalize;
+    backdrop-filter: blur(4px);
+}
+
+.topRightLabelContainer {
+    position: absolute;        
+    top: -3rem;       /* top: -5rem; */    
+    right: -8rem;             
+    text-align: right;   
+    color: rgb(34 211 238);
+}
+
+.topRightLabelSubcontainer {
+    position: relative;
+}
+
+.TRHorizontalLine {
+    position: absolute;
+    top: 0; /* bottom: 0*/   
+    right: 100%; 
+    height: 1px; 
+    width: 8rem; 
+    background-color: currentColor;
+}
+
+.TRVerticalLine {
+    position: absolute;
+    top: 0; /* bottom: 0*/   
+    right: 100%; 
+    height: 2rem; 
+    width: 1px; 
+    background-color: currentColor;
+}
+
+.physicalDataLabel {
+    font-size: 0.875rem; 
+    line-height: 1.25rem; 
+    text-transform: uppercase;
+    letter-spacing: 0.05em; 
+    margin-bottom: 0.25rem; 
+    margin-left: 1rem;  /**/
+    color: #cbd5e0; 
+}
+
+.physicalDataContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.heightAndWeightData {
+    font-weight: 700;
+}
+
+.leftLabelContainer {
+    position: absolute; 
+    top: 25%;           
+    left: -24rem;     /* from -14rem */  
+    color: #22d3ee; 
+}
+
+.leftLabelSubcontainer {
+    position: relative;
+}
+
+.leftLabelLine {
+    position: absolute;
+    top: 1rem;
+    left: 100%;
+    height: 1px;
+    width: 5rem;
+    background-color: currentColor;
+}
+
+.combatStatsLabel, .specialStatsLabel {
+    font-size: 0.875rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em; 
+    margin-bottom: 0.5rem; 
+    margin-left: 1rem;  /**/
+    margin-right: 1rem; /**/
+    color: #cbd5e0;
+}
+
+.combatStatsContainer, .specialStatsContainer {
+    margin-top: 0.5rem; 
+    margin-left: 1rem;  /**/
+    margin-right: 1rem; /**/
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+}
+
+.HPSection, .ATKSection, .DEFSection {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.HPLabel, .ATKLabel, .DEFLabel, .SPALabel, .SPDLabel, .SPEEDLabel {
+    width: 4rem;
+}
+
+.hpBar, .ATKBar, .DEFBar, .SPABar, .SPDBar, .SPEEDBar {
+    height: 0.5rem; 
+    width: 5rem;  /**/
+    border-radius: 9999px; 
+    overflow: hidden; 
+    flex: 1 1 0%; 
+    background-color: #4a5568;
+}
+
+.hpBar-greenSection {
+    height: 100%;
+    background-color: #22c55e;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms; 
+}
+
+.hpData, .ATKData, .DEFData {
+    /* width: 2.5rem;  */
+    font-weight: 700; 
+    text-align: right; 
+}
+
+.ATKBar-redSection {
+    height: 100%;
+    background-color: #EF4444;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms; 
+}
+
+.DEFBar-blueSection {
+    height: 100%;
+    background-color: #3B82F6;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.rightLabelContainer {
+    position: absolute; 
+    top: 25%;           
+    right: -24rem;     /* from -14rem */      
+    color: #22d3ee; 
+}
+
+.rightLabelSubcontainer {
+    position: relative;
+}
+
+.rightLabelLine {
+    position: absolute;
+    top: 1rem;
+    right: 100%;
+    height: 1px;
+    width: 5rem;
+    background-color: currentColor;
+}
+
+.SPASection, .SPDSection, .SPEEDSection {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-direction: row-reverse;
+}
+
+.SPABar-purpleSection {
+    height: 100%;
+    background-color: #8B5CF6;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.SPDBar-orangeSection {
+    height: 100%;
+    background-color: #ed8936;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.SPEEDBar-pinkSection {
+    height: 100%;
+    background-color: #EC4899;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.SPAData, .SPDData, .SPEEDData {
+    /* width: 2.5rem;  */
+    font-weight: 700; 
+    text-align: left; 
+}
+
+.bottomLeftLabelContainer {
+    position: absolute;
+    bottom: 3rem; /* from -8rem*/ 
+    left: -18rem;  /* from -8rem*/ 
+    color: rgb(34 211 238);
+}
+
+.bottomLeftLabelSubcontainer {
+    position: relative;
+}
+
+.BLHorizontalLine {
+  position: absolute;
+  bottom: 0; /* top: 0*/
+  left: 100%; 
+  height: 1px; 
+  width: 8rem; 
+  background-color: currentColor; 
+}
+
+.BLVerticalLine {
+    position: absolute;
+    bottom: 0%; /*top: 0*/
+    left: 100%; 
+    height: 2rem; 
+    width: 1px; 
+    background-color: currentColor; 
+}
+
+.abilitiesLabel {
+    font-size: 0.875rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em; 
+    margin-bottom: 0.5rem;
+    color: #cbd5e0; 
+}
+
+.abilitiesContainer {
+    display: flex;      
+    flex-wrap: wrap;    
+    gap: 0.5rem;         
+    max-width: 20rem;  
+}
+
+.abilityBadge {
+    padding-left: 0.75rem; 
+    padding-right: 0.75rem; 
+    padding-top: 0.25rem; 
+    padding-bottom: 0.25rem; 
+    border-radius: 0.5rem; 
+    border-width: 1px; 
+    font-size: 0.875rem;
+    background-color: rgba(31, 41, 55, 0.5); 
+    border-color: rgba(6, 182, 212, 0.5); 
+    color: rgb(103, 232, 249); 
+}
+
+.bottomRightLabelContainer {
+    position: absolute;
+    bottom: 2rem; /* from -8rem*/ 
+    right: -18rem;  /* from -8rem*/ 
+    color: rgb(34 211 238);
+}
+
+.bottomRightLabelSubcontainer {
+    position: relative;
+}
+
+.BRHorizontalLine {
+    position: absolute;
+    bottom: 0; /* top: 0*/
+    right: 100%; 
+    height: 1px; 
+    width: 8rem; 
+    background-color: currentColor; 
+}
+
+.BRVerticalLine {
+    position: absolute;
+    bottom: 0;  /* top: 0*/
+    right: 100%; 
+    height: 2rem; 
+    width: 1px; 
+    background-color: currentColor; 
+}
+
+.evolutionChainLabel {
+    font-size: 0.875rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em; 
+    margin-bottom: 0.5rem;
+    color: #cbd5e0; 
+}
+
+.evolutionChainContainer {
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+    justify-content: flex-end; 
+    font-size: 0.875rem;
+}
+
+.preEvoName, .nextEvoName {
+    text-transform: capitalize;
+}
+
+.currentEvoName {
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+.stageNumberLabel {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    margin-top: 0.25rem;
+    color: #a0aec0;
+}
+
+.bottomCenterContainer {
+    position: absolute;
+    bottom: -3rem; /* from -12rem*/ 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24rem;
+    text-align: center;
+    color: #22d3ee; 
+}
+
+.bottomCenterSubcontainer {
+    position: relative;
+}
+
+.bottomCenterLine {
+    position: absolute;      
+    top: -4rem;               
+    left: 50%;                
+    height: 4rem;             
+    width: 1px;               
+    background-color: currentColor; 
+}
+
+.fieldNotesLabel {
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem; 
+    color: #cbd5e0; 
+}
+
+.fieldNotes {
+    font-size: 0.875rem; 
+    font-style: italic; 
+    color: #e2e8f0; 
+}
+
+.formIndicator {
+    position: absolute;
+    bottom: 1rem;              
+    left: 50%;                 
+    transform: translateX(-50%); 
+    padding: 0.5rem 1rem;   
+    border-radius: 9999px;  
+    font-size: 0.875rem;    
+    line-height: 1.25rem;   
+    color: #22d3ee;        
+    background-color: rgba(31, 41, 55, 0.9); 
+    border: 1px solid rgba(6, 182, 212, 0.5); 
+}
+
+/* KEYFRAMES */
+@keyframes pulsing {
+  75%, 100% {
+    transform: scale(2); /* Scales the element to twice its size */
+    opacity: 0; /* Fades out the element */
+  }
+}

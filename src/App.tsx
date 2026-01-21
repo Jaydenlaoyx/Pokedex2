@@ -51,11 +51,11 @@ function App() {
 
       {/* Pokemon Page */}
       {selectedPokemon && (
-          <PokemonPage
-            pokemon={selectedPokemon}
-            onClose={() => setSelectedPokemon(null)}
-          />
-        )}
+        <PokemonPage 
+          pokemon={selectedPokemon}
+          onClose={() => setSelectedPokemon(null)}
+        />
+      )}
     </>
   )
 }
